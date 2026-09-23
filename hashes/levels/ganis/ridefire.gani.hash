@@ -1,1 +1,2 @@
 b1cc4e4d7802dff131e7a93a2a2c216a426736b8  levels\ganis\ridefire.gani
+# COREO: 169 records = 1 baseline + 168 one-bit cases across 21-byte zero buffer; each output is 20 bytes.

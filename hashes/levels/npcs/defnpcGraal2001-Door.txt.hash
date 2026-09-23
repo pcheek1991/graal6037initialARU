@@ -1,1 +1,2 @@
 fba51342f2832a518bc7deec0749017b28b3ac69  levels\npcs\defnpcGraal2001-Door.txt
+# COREO: 169 records = 1 baseline + 168 one-bit cases across 21-byte zero buffer; each output is 20 bytes.

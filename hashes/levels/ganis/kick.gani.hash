@@ -1,1 +1,2 @@
 7c9048d1fa7a22ce386770741a72c492a063b715  levels\ganis\kick.gani
+# COREO: 169 records = 1 baseline + 168 one-bit cases across 21-byte zero buffer; each output is 20 bytes.

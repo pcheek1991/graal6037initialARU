@@ -1,1 +1,2 @@
 4956177c3ebec51a896b9b91bfcfff89858cfc5c  levels\ganis\kungfu.gani
+# COREO: 169 records = 1 baseline + 168 one-bit cases across 21-byte zero buffer; each output is 20 bytes.

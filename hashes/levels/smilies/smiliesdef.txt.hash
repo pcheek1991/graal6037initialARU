@@ -1,1 +1,2 @@
 a69f2328f664f368007cb18774d023bd481d2e87  levels\smilies\smiliesdef.txt
+# COREO: 169 records = 1 baseline + 168 one-bit cases across 21-byte zero buffer; each output is 20 bytes.

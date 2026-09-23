@@ -1,1 +1,2 @@
 cd0a069702a3404db1f1da5b96ddba45a72bf977  levels\emoticons\emoticon_Heart.png
+# COREO: 169 records = 1 baseline + 168 one-bit cases across 21-byte zero buffer; each output is 20 bytes.

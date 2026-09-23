@@ -1,1 +1,2 @@
 c8bf43411e0dac47bf77f9d1d8ad761e0161181d  sounds\lift2.wav
+# COREO: 169 records = 1 baseline + 168 one-bit cases across 21-byte zero buffer; each output is 20 bytes.

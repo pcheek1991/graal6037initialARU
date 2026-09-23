@@ -1,1 +1,2 @@
 5e1caeccb3a4788b91480df8ef1ac56fa4f42147  dungeongenerator\example2\Dungeon.txt
+# COREO: 169 records = 1 baseline + 168 one-bit cases across 21-byte zero buffer; each output is 20 bytes.

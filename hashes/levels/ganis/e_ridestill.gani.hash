@@ -1,1 +1,2 @@
 0b21c1d73495a180cd1fc523e31820a42eaf3df9  levels\ganis\e_ridestill.gani
+# COREO: 169 records = 1 baseline + 168 one-bit cases across 21-byte zero buffer; each output is 20 bytes.

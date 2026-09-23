@@ -1,1 +1,2 @@
 83defe1356243a2d71f74acfd33d049166e76898  tileobjects\objectsVolcano.txt
+# COREO: 169 records = 1 baseline + 168 one-bit cases across 21-byte zero buffer; each output is 20 bytes.

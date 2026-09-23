@@ -1,1 +1,2 @@
 57c8301de016aaa67d2d1a7a4f620e0d316ff44c  levels\ganis\ghostani.gani
+# COREO: 169 records = 1 baseline + 168 one-bit cases across 21-byte zero buffer; each output is 20 bytes.

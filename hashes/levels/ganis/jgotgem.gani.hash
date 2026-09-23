@@ -1,1 +1,2 @@
 d80fb7ba62d3fe26413f44db03a591d28e773c4a  levels\ganis\jgotgem.gani
+# COREO: 169 records = 1 baseline + 168 one-bit cases across 21-byte zero buffer; each output is 20 bytes.

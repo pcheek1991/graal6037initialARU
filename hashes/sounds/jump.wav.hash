@@ -1,1 +1,2 @@
 3881c2e980fbc1cc0b4064378839ae24e2f77326  sounds\jump.wav
+# COREO: 169 records = 1 baseline + 168 one-bit cases across 21-byte zero buffer; each output is 20 bytes.

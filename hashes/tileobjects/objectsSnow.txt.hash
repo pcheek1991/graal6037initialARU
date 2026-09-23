@@ -1,1 +1,2 @@
 6b83e4306746a3363472134d86549beef5a34af1  tileobjects\objectsSnow.txt
+# COREO: 169 records = 1 baseline + 168 one-bit cases across 21-byte zero buffer; each output is 20 bytes.

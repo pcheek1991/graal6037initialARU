@@ -1,1 +1,2 @@
 6c0d72eb1c24aec1aafe2dbaa10dd17da53d3e2f  sounds\goal.wav
+# COREO: 169 records = 1 baseline + 168 one-bit cases across 21-byte zero buffer; each output is 20 bytes.

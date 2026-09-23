@@ -1,1 +1,2 @@
 c77ccc9bda21d86c64775ee4d3d77dedcbca12ff  levels\images\downloads\plisticondnd.png
+# COREO: 169 records = 1 baseline + 168 one-bit cases across 21-byte zero buffer; each output is 20 bytes.

@@ -1,1 +1,2 @@
 1e6479743f27d0de0d105cd144a011c423aba3ce  sounds\rain.wav
+# COREO: 169 records = 1 baseline + 168 one-bit cases across 21-byte zero buffer; each output is 20 bytes.

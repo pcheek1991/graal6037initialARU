@@ -1,1 +1,2 @@
 ebc2bc434d2f76e00e3a0d044dfc41f54c50fc95  dungeongenerator\torch_right.txt
+# COREO: 169 records = 1 baseline + 168 one-bit cases across 21-byte zero buffer; each output is 20 bytes.

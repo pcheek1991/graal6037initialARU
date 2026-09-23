@@ -1,1 +1,2 @@
 113ed0a164df60326ce56dac71daff4d4f6e6bc1  levels\ganis\watercanspread.gani
+# COREO: 169 records = 1 baseline + 168 one-bit cases across 21-byte zero buffer; each output is 20 bytes.

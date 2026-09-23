@@ -1,1 +1,2 @@
 cfa3b76d2d5b8e9d1136f939d355da36e63b1aba  levels\npcs\editnpcGraal2002-Path.txt
+# COREO: 169 records = 1 baseline + 168 one-bit cases across 21-byte zero buffer; each output is 20 bytes.

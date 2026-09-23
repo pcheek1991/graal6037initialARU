@@ -1,1 +1,2 @@
 db62cf03c9e94a0ab903bae1e6aea0ad706b5e14  levels\ganis\swim.gani
+# COREO: 169 records = 1 baseline + 168 one-bit cases across 21-byte zero buffer; each output is 20 bytes.

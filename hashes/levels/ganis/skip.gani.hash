@@ -1,1 +1,2 @@
 5907c2ee5366c4a39add4cf59910e0eeccb7baa2  levels\ganis\skip.gani
+# COREO: 169 records = 1 baseline + 168 one-bit cases across 21-byte zero buffer; each output is 20 bytes.

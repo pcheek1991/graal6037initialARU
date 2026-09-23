@@ -1,1 +1,2 @@
 69db93b040a2fca067befa338bb9c4f05cfae270  levels\ganis\glare1.mng
+# COREO: 169 records = 1 baseline + 168 one-bit cases across 21-byte zero buffer; each output is 20 bytes.

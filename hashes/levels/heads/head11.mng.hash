@@ -1,1 +1,2 @@
 c9ffc0664b5fcd7b4f48c7fa3fa0269b3f5d695e  levels\heads\head11.mng
+# COREO: 169 records = 1 baseline + 168 one-bit cases across 21-byte zero buffer; each output is 20 bytes.

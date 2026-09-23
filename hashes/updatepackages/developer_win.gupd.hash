@@ -1,1 +1,2 @@
 eee45c8688efd63b3cc8560bdf3738169e5090c7  updatepackages\developer_win.gupd
+# COREO: 169 records = 1 baseline + 168 one-bit cases across 21-byte zero buffer; each output is 20 bytes.

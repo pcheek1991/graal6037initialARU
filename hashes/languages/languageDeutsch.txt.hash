@@ -1,1 +1,2 @@
 e448e92e6d06a3d79a4906a1c4f143eecfe94341  languages\languageDeutsch.txt
+# COREO: 169 records = 1 baseline + 168 one-bit cases across 21-byte zero buffer; each output is 20 bytes.

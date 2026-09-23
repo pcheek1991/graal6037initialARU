@@ -1,1 +1,2 @@
 f659471f97eb71966ea4937afda8d92ab7b14dba  updatepackages\basepackage_mac.gupd
+# COREO: 169 records = 1 baseline + 168 one-bit cases across 21-byte zero buffer; each output is 20 bytes.

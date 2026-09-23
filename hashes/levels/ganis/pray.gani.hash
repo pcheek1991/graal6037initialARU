@@ -1,1 +1,2 @@
 5ac3bdbe994a49043e83bf0e270ce8e18bf9bc07  levels\ganis\pray.gani
+# COREO: 169 records = 1 baseline + 168 one-bit cases across 21-byte zero buffer; each output is 20 bytes.

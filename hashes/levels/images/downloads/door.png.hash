@@ -1,1 +1,2 @@
 2dc30d83d96c9bffef1b624403d6c7399833cac2  levels\images\downloads\door.png
+# COREO: 169 records = 1 baseline + 168 one-bit cases across 21-byte zero buffer; each output is 20 bytes.

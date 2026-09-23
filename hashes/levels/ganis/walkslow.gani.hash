@@ -1,1 +1,2 @@
 58cd31bf2d964f81dd41cc06614375a409797863  levels\ganis\walkslow.gani
+# COREO: 169 records = 1 baseline + 168 one-bit cases across 21-byte zero buffer; each output is 20 bytes.

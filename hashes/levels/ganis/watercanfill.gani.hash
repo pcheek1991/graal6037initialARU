@@ -1,1 +1,2 @@
 64c332ccc6b44749060e7dce0c503d83f1684d15  levels\ganis\watercanfill.gani
+# COREO: 169 records = 1 baseline + 168 one-bit cases across 21-byte zero buffer; each output is 20 bytes.

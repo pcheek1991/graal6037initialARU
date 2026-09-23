@@ -1,1 +1,2 @@
 0c2b693672e0d77a4e593dd055afaf3f37a79ad0  levels\images\downloads\bluelampani2.mng
+# COREO: 169 records = 1 baseline + 168 one-bit cases across 21-byte zero buffer; each output is 20 bytes.

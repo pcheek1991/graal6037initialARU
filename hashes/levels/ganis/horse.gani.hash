@@ -1,1 +1,2 @@
 4b282d1816420e31aebe9bc9a98263df75d3af6c  levels\ganis\horse.gani
+# COREO: 169 records = 1 baseline + 168 one-bit cases across 21-byte zero buffer; each output is 20 bytes.

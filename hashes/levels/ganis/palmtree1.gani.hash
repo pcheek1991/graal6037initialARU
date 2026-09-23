@@ -1,1 +1,2 @@
 01ce549c4590f1d0c6f50d5496348365d79af5de  levels\ganis\palmtree1.gani
+# COREO: 169 records = 1 baseline + 168 one-bit cases across 21-byte zero buffer; each output is 20 bytes.

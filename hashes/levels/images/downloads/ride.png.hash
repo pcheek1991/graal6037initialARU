@@ -1,1 +1,2 @@
 ab65d6b426841f30df51380f74260e15903147ca  levels\images\downloads\ride.png
+# COREO: 169 records = 1 baseline + 168 one-bit cases across 21-byte zero buffer; each output is 20 bytes.

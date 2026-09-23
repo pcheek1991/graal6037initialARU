@@ -1,1 +1,2 @@
 3f30528c5b08e59ca8d617c32ef739ce2b36ee4b  levels\ganis\hurt.gani
+# COREO: 169 records = 1 baseline + 168 one-bit cases across 21-byte zero buffer; each output is 20 bytes.

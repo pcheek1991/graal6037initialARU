@@ -1,1 +1,2 @@
 667bf080bf82824a8db8c5a9f34471e512d73418  levels\ganis\human2_idle.gani
+# COREO: 169 records = 1 baseline + 168 one-bit cases across 21-byte zero buffer; each output is 20 bytes.

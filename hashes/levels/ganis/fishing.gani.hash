@@ -1,1 +1,2 @@
 ad1da0cf1f34eb7011e11d6187ddf1f261cab913  levels\ganis\fishing.gani
+# COREO: 169 records = 1 baseline + 168 one-bit cases across 21-byte zero buffer; each output is 20 bytes.

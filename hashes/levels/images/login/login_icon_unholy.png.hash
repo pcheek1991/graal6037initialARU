@@ -1,1 +1,2 @@
 e121996c94de337ab6417311cca867acaf0aea4a  levels\images\login\login_icon_unholy.png
+# COREO: 169 records = 1 baseline + 168 one-bit cases across 21-byte zero buffer; each output is 20 bytes.

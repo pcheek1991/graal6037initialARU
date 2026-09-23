@@ -1,1 +1,2 @@
 90b8fa3089efa00e0684087849952910dec2d532  headsconfig.txt
+# COREO: 169 records = 1 baseline + 168 one-bit cases across 21-byte zero buffer; each output is 20 bytes.

@@ -1,1 +1,2 @@
 ffd8b03f7976d1569536cd41a22a73fcaca460dd  game_console.log
+# COREO: 169 records = 1 baseline + 168 one-bit cases across 21-byte zero buffer; each output is 20 bytes.

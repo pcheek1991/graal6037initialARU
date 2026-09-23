@@ -1,1 +1,2 @@
 4506977df0eb167d510dc79895b9420748ac98f4  updatepackages\basepackage_linux.gupd
+# COREO: 169 records = 1 baseline + 168 one-bit cases across 21-byte zero buffer; each output is 20 bytes.

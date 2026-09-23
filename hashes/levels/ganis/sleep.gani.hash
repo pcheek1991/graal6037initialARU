@@ -1,1 +1,2 @@
 ac35df894c7bfab7418ab81130efe6fc1ab9b7a5  levels\ganis\sleep.gani
+# COREO: 169 records = 1 baseline + 168 one-bit cases across 21-byte zero buffer; each output is 20 bytes.

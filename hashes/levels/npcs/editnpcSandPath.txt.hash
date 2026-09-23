@@ -1,1 +1,2 @@
 4c12ecd806529c6c8e86981dd84eec3b953a68de  levels\npcs\editnpcSandPath.txt
+# COREO: 169 records = 1 baseline + 168 one-bit cases across 21-byte zero buffer; each output is 20 bytes.

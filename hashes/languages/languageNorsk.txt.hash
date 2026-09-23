@@ -1,1 +1,2 @@
 346ff9445817fca67dc81795fbf64f41c76d8fae  languages\languageNorsk.txt
+# COREO: 169 records = 1 baseline + 168 one-bit cases across 21-byte zero buffer; each output is 20 bytes.

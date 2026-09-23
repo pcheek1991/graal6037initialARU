@@ -1,1 +1,2 @@
 d5f0dc075d3ac22d8bb91f6f07c175ede6807a78  levels\images\downloads\light2.png
+# COREO: 169 records = 1 baseline + 168 one-bit cases across 21-byte zero buffer; each output is 20 bytes.

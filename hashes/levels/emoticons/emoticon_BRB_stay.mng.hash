@@ -1,1 +1,2 @@
 0b8c9b62a373234a119a7ee675dad397c1603c44  levels\emoticons\emoticon_BRB_stay.mng
+# COREO: 169 records = 1 baseline + 168 one-bit cases across 21-byte zero buffer; each output is 20 bytes.

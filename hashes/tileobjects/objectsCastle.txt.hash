@@ -1,1 +1,2 @@
 20296633e9fc3d8ef49d31165cb4848e69173a22  tileobjects\objectsCastle.txt
+# COREO: 169 records = 1 baseline + 168 one-bit cases across 21-byte zero buffer; each output is 20 bytes.

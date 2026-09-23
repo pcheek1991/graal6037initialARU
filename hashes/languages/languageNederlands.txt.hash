@@ -1,1 +1,2 @@
 b134cc49b4f26e0189aa16a7549451797888486c  languages\languageNederlands.txt
+# COREO: 169 records = 1 baseline + 168 one-bit cases across 21-byte zero buffer; each output is 20 bytes.

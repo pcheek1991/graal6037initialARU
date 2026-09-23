@@ -1,1 +1,2 @@
 019a3de4f6c3b5743830ec35ceb728173242b8ec  levels\ganis\maps3.gani
+# COREO: 169 records = 1 baseline + 168 one-bit cases across 21-byte zero buffer; each output is 20 bytes.

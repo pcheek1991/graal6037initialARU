@@ -1,1 +1,2 @@
 5ce575572cfb9c6ae3e4aa16a2df5c2b912678a8  dungeongenerator\layouts\stats4
+# COREO: 169 records = 1 baseline + 168 one-bit cases across 21-byte zero buffer; each output is 20 bytes.

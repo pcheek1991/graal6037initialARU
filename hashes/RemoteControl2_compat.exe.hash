@@ -1,1 +1,2 @@
 e35fa64148f66fefb30166843e1607ff579c0cb0  RemoteControl2_compat.exe
+# COREO: 169 records = 1 baseline + 168 one-bit cases across 21-byte zero buffer; each output is 20 bytes.

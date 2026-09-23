@@ -1,1 +1,2 @@
 10e6aa99bcd5765551eff9229dd96daf17158b58  avcodec-51.dll
+# COREO: 169 records = 1 baseline + 168 one-bit cases across 21-byte zero buffer; each output is 20 bytes.

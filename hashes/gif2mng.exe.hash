@@ -1,1 +1,2 @@
 8c6a75e91001ef005b1d34a38e7eb24fc5507578  gif2mng.exe
+# COREO: 169 records = 1 baseline + 168 one-bit cases across 21-byte zero buffer; each output is 20 bytes.

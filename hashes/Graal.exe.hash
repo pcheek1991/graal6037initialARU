@@ -1,1 +1,2 @@
 cba5f723bec7ebb65616b8a509aad36bf7ee0f11  Graal.exe
+# COREO: 169 records = 1 baseline + 168 one-bit cases across 21-byte zero buffer; each output is 20 bytes.

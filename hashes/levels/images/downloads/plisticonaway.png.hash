@@ -1,1 +1,2 @@
 c71483a3acc0d901b5b73f41bc91cf76c0897acd  levels\images\downloads\plisticonaway.png
+# COREO: 169 records = 1 baseline + 168 one-bit cases across 21-byte zero buffer; each output is 20 bytes.

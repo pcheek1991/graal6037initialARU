@@ -1,1 +1,2 @@
 2f9afdb46a8d53dbc8064eb1764b5405da2c5e66  dungeongenerator\walltorch.gani
+# COREO: 169 records = 1 baseline + 168 one-bit cases across 21-byte zero buffer; each output is 20 bytes.

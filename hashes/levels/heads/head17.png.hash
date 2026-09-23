@@ -1,1 +1,2 @@
 284717bb9ea6b49725ba9ac3af2ccb5f9475b691  levels\heads\head17.png
+# COREO: 169 records = 1 baseline + 168 one-bit cases across 21-byte zero buffer; each output is 20 bytes.

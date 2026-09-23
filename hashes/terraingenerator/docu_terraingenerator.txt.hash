@@ -1,1 +1,2 @@
 6f66bd5eb98178c6f8d0eb08195fecfe3692c0ae  terraingenerator\docu_terraingenerator.txt
+# COREO: 169 records = 1 baseline + 168 one-bit cases across 21-byte zero buffer; each output is 20 bytes.

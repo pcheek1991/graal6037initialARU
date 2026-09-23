@@ -1,1 +1,2 @@
 0b2504d58ad6cdb22d4f4f50c2023f13eea01f6b  levels\music\g2k2_the-town-of-ww.mp3
+# COREO: 169 records = 1 baseline + 168 one-bit cases across 21-byte zero buffer; each output is 20 bytes.

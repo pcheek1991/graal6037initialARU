@@ -1,1 +1,2 @@
 259e1dc5e6c1631c413a512ac85fda919f4a0fae  levels\ganis\fishingstill.gani
+# COREO: 169 records = 1 baseline + 168 one-bit cases across 21-byte zero buffer; each output is 20 bytes.

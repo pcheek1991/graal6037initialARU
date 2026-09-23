@@ -1,1 +1,2 @@
 f87a92f96b27d4cbd717f7090a76322af1f06160  levels\images\downloads\kmarms100.png
+# COREO: 169 records = 1 baseline + 168 one-bit cases across 21-byte zero buffer; each output is 20 bytes.

@@ -1,1 +1,2 @@
 4a7110bf6ec02698352350dad818ef4713b572d3  levels\images\downloads\baddyred.png
+# COREO: 169 records = 1 baseline + 168 one-bit cases across 21-byte zero buffer; each output is 20 bytes.

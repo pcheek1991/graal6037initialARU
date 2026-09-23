@@ -1,1 +1,2 @@
 8573c03e005e7c857e9a43f00493ff5b86bafe9e  levels\ganis\gralats.gani
+# COREO: 169 records = 1 baseline + 168 one-bit cases across 21-byte zero buffer; each output is 20 bytes.

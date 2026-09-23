@@ -1,1 +1,2 @@
 8337c79862ded3f97137b0088bbe197841373345  sounds\bomb.wav
+# COREO: 169 records = 1 baseline + 168 one-bit cases across 21-byte zero buffer; each output is 20 bytes.

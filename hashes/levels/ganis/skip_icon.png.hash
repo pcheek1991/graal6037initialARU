@@ -1,1 +1,2 @@
 86f713ad6aff79a7ca63046d58ec56e982c29be7  levels\ganis\skip_icon.png
+# COREO: 169 records = 1 baseline + 168 one-bit cases across 21-byte zero buffer; each output is 20 bytes.

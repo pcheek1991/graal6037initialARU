@@ -1,1 +1,2 @@
 f2f19cc62f6db25e62967a2061b63668ca71b1d8  languages\languageFrancais.txt
+# COREO: 169 records = 1 baseline + 168 one-bit cases across 21-byte zero buffer; each output is 20 bytes.

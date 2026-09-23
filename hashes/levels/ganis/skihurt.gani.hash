@@ -1,1 +1,2 @@
 a58883a2dd76895263ce2eacfd9aa5b2faf43114  levels\ganis\skihurt.gani
+# COREO: 169 records = 1 baseline + 168 one-bit cases across 21-byte zero buffer; each output is 20 bytes.

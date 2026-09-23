@@ -1,1 +1,2 @@
 ab17b77eeebfe7296972b8c042a8554da601599a  sounds\bird1.wav
+# COREO: 169 records = 1 baseline + 168 one-bit cases across 21-byte zero buffer; each output is 20 bytes.

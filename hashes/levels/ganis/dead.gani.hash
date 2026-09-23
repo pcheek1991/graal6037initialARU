@@ -1,1 +1,2 @@
 d72dd13b05ebb65091107365f5335784b10a1a8e  levels\ganis\dead.gani
+# COREO: 169 records = 1 baseline + 168 one-bit cases across 21-byte zero buffer; each output is 20 bytes.

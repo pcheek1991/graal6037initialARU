@@ -1,1 +1,2 @@
 e5f09c6c9109fb375bf3d447d58d9b4cc9747956  sounds\frog2.wav
+# COREO: 169 records = 1 baseline + 168 one-bit cases across 21-byte zero buffer; each output is 20 bytes.

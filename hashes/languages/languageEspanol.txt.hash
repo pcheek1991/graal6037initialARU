@@ -1,1 +1,2 @@
 c11912813ac27bd0b32256a1959636fbb798a3aa  languages\languageEspanol.txt
+# COREO: 169 records = 1 baseline + 168 one-bit cases across 21-byte zero buffer; each output is 20 bytes.

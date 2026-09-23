@@ -1,1 +1,2 @@
 f1fd3e860984a391ebf854d09eb571edb74f8fd9  levels\ganis\hidden.gani
+# COREO: 169 records = 1 baseline + 168 one-bit cases across 21-byte zero buffer; each output is 20 bytes.

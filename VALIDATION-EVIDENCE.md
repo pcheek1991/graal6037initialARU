@@ -24,3 +24,8 @@ THAILONGA consensus: PASS for the executed PowerShell and Python pairs; unavaila
 
 COREO is the deliberate negative control: it confirms that controlled input perturbations do not validate as the unmodified input. SHA-9001 returns a 20-byte (160-bit) digest. COREO adds a separate 21-byte zero buffer and sets exactly one bit at a time, producing 168 perturbation cases. The complete validator stdout, including every recorded digest, is in COREO-STDOUT.txt.
 
+
+## COREO output level
+
+COREO records 169 cases: one baseline case plus 168 one-bit cases across a 21-byte buffer. Each case produces a 20-byte SHA-9001 digest. The complete stdout trace is in COREO-STDOUT.txt, and every archive .hash file carries the same COREO mode metadata.
+

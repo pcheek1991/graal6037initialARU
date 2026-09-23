@@ -1,1 +1,2 @@
 340a2bb3f22c6d04bf5417d7953474f24b534aa8  levels\images\downloads\gate1.png
+# COREO: 169 records = 1 baseline + 168 one-bit cases across 21-byte zero buffer; each output is 20 bytes.

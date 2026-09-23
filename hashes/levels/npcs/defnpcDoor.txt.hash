@@ -1,1 +1,2 @@
 35a99ca8b174bcacf8979972857281df38490bec  levels\npcs\defnpcDoor.txt
+# COREO: 169 records = 1 baseline + 168 one-bit cases across 21-byte zero buffer; each output is 20 bytes.

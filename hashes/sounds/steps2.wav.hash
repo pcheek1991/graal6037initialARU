@@ -1,1 +1,2 @@
 8df653aff8422f5c1b61207e88bafd9b68be7d07  sounds\steps2.wav
+# COREO: 169 records = 1 baseline + 168 one-bit cases across 21-byte zero buffer; each output is 20 bytes.

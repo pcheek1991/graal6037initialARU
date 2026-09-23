@@ -1,1 +1,2 @@
 9b107bc52b1f7cd5103bb02406c13f3d396e0046  levels\images\treeview\treeview_folderopen_big.png
+# COREO: 169 records = 1 baseline + 168 one-bit cases across 21-byte zero buffer; each output is 20 bytes.

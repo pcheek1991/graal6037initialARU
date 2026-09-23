@@ -1,1 +1,2 @@
 7657b0da21c865196b0bddec348fa80b5bc4e477  levels\images\downloads\klegs0.png
+# COREO: 169 records = 1 baseline + 168 one-bit cases across 21-byte zero buffer; each output is 20 bytes.

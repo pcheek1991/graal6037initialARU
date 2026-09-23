@@ -1,1 +1,2 @@
 d018b780bfaaae0aeb8b7ba75fd8c39f7b4be205  sounds\train.wav
+# COREO: 169 records = 1 baseline + 168 one-bit cases across 21-byte zero buffer; each output is 20 bytes.

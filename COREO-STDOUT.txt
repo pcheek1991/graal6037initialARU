@@ -4,10 +4,11 @@ baseline_bytes=31
 baseline_digest_bytes=20
 baseline_sha9001=d54be4c08f7b2f0215a20a11f1d2059692ba6851
 chaos_bytes=21
-chaos_mode=one bit set at a time across 21-byte zero buffer; 168 perturbations
+chaos_mode=case 0 is the unmodified 21-byte zero buffer; cases 1-168 set one bit at a time; 169 total records
 iteration_count=9001
 
 index,byte_offset,bit_offset,mutated_sha9001,baseline_match
+0,-1,-1,392ca07f09d250bb24ad801ce1f0e64a22de90c1,False
 1,0,0,74b79643b63330c9e395127bfcf80a7a36eab149,False
 2,0,1,d2daf03854963a6983df0654cc3ad845f10926c7,False
 3,0,2,27b908affde3afe31fb5a7add9999209e2609e7d,False
@@ -177,7 +178,9 @@ index,byte_offset,bit_offset,mutated_sha9001,baseline_match
 167,20,6,3059df018c24cc81698cb68d446971882b24e922,False
 168,20,7,a690ba2fcdbf31635daa236190b95ada4e0efb98,False
 
-perturbation_count=168
+perturbation_count=169
+one_bit_cases=168
+baseline_case=1
 all_outputs_20_bytes=True
 COREO result=EXPECTED_NEGATIVE_CONTROL
 COREO definition=deliberately perturbed input must not equal the baseline digest.

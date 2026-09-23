@@ -1,1 +1,2 @@
 aa3c98141ac59749603a1f1d32cddebc79f5eb02  scriptfiles\playerlistoptions.txt
+# COREO: 169 records = 1 baseline + 168 one-bit cases across 21-byte zero buffer; each output is 20 bytes.

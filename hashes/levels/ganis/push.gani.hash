@@ -1,1 +1,2 @@
 88a423926adf740f912e5304e7f54b76f8655e91  levels\ganis\push.gani
+# COREO: 169 records = 1 baseline + 168 one-bit cases across 21-byte zero buffer; each output is 20 bytes.

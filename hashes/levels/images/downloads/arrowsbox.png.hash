@@ -1,1 +1,2 @@
 73ca6f97713eca97c9e1a9d838a247a2ff83486d  levels\images\downloads\arrowsbox.png
+# COREO: 169 records = 1 baseline + 168 one-bit cases across 21-byte zero buffer; each output is 20 bytes.

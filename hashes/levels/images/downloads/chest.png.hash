@@ -1,1 +1,2 @@
 7dfa526630db474ce475d52b2d5246a2dc937b36  levels\images\downloads\chest.png
+# COREO: 169 records = 1 baseline + 168 one-bit cases across 21-byte zero buffer; each output is 20 bytes.

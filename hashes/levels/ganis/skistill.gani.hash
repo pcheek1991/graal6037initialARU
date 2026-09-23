@@ -1,1 +1,2 @@
 79f05db8c29eae8c2a67da0f5048854d32c1b494  levels\ganis\skistill.gani
+# COREO: 169 records = 1 baseline + 168 one-bit cases across 21-byte zero buffer; each output is 20 bytes.

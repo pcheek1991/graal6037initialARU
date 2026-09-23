@@ -1,1 +1,2 @@
 c7aa56bd50b01a506f817a932a0ec1ab3166e012  sounds\bomywalk0.wav
+# COREO: 169 records = 1 baseline + 168 one-bit cases across 21-byte zero buffer; each output is 20 bytes.

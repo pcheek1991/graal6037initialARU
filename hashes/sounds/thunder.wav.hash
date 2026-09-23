@@ -1,1 +1,2 @@
 74ae20c0ea9503c4c10fd3cc76352241ae8e9a95  sounds\thunder.wav
+# COREO: 169 records = 1 baseline + 168 one-bit cases across 21-byte zero buffer; each output is 20 bytes.

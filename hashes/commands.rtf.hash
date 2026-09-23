@@ -1,1 +1,2 @@
 e9507cc34aff8dfd73f07350002b8a7ee41311e1  commands.rtf
+# COREO: 169 records = 1 baseline + 168 one-bit cases across 21-byte zero buffer; each output is 20 bytes.

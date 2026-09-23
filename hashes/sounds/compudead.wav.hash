@@ -1,1 +1,2 @@
 52d6bba0bd19f9ff44092fc9ecb4e2677ca0750c  sounds\compudead.wav
+# COREO: 169 records = 1 baseline + 168 one-bit cases across 21-byte zero buffer; each output is 20 bytes.

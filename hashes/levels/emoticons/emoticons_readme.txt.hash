@@ -1,1 +1,2 @@
 4286cfd2bfe675824646f2e6bae97fa0452c0d95  levels\emoticons\emoticons_readme.txt
+# COREO: 169 records = 1 baseline + 168 one-bit cases across 21-byte zero buffer; each output is 20 bytes.

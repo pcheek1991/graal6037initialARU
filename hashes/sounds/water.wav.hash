@@ -1,1 +1,2 @@
 acd1427b04b085da1d4842a86df14c6e0c1065fa  sounds\water.wav
+# COREO: 169 records = 1 baseline + 168 one-bit cases across 21-byte zero buffer; each output is 20 bytes.

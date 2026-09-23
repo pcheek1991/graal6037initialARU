@@ -1,1 +1,2 @@
 3d95b5f7a27b9b67d96f068a2beafc9f35797692  sounds\arrowon.wav
+# COREO: 169 records = 1 baseline + 168 one-bit cases across 21-byte zero buffer; each output is 20 bytes.

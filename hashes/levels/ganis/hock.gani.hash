@@ -1,1 +1,2 @@
 b6cd3d632f044e5f843f62644c6deb0fc6cd3352  levels\ganis\hock.gani
+# COREO: 169 records = 1 baseline + 168 one-bit cases across 21-byte zero buffer; each output is 20 bytes.

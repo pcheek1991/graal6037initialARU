@@ -1,1 +1,2 @@
 b12e25e52b5544ef16e4199a2cf173fd1c0cec32  updatepackages\kingdomsmusic2.gupd
+# COREO: 169 records = 1 baseline + 168 one-bit cases across 21-byte zero buffer; each output is 20 bytes.

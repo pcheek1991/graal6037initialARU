@@ -1,1 +1,2 @@
 2f7e2f0725b2295b350e07faeb6862c86eacd361  levels\shields\shield1.png
+# COREO: 169 records = 1 baseline + 168 one-bit cases across 21-byte zero buffer; each output is 20 bytes.

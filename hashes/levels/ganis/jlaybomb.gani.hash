@@ -1,1 +1,2 @@
 7c50a17365cb05bbe8bd40fe71730cbf4769edef  levels\ganis\jlaybomb.gani
+# COREO: 169 records = 1 baseline + 168 one-bit cases across 21-byte zero buffer; each output is 20 bytes.

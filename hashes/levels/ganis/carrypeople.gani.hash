@@ -1,1 +1,2 @@
 2bbba254448021d05516e2eecebbd1d704c415b6  levels\ganis\carrypeople.gani
+# COREO: 169 records = 1 baseline + 168 one-bit cases across 21-byte zero buffer; each output is 20 bytes.

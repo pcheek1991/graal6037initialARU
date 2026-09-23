@@ -1,1 +1,2 @@
 9a85883c15cfb89faa59c09abbf7b1fb92cb1ae0  sounds\cauldron_bubbles.wav
+# COREO: 169 records = 1 baseline + 168 one-bit cases across 21-byte zero buffer; each output is 20 bytes.

@@ -1,1 +1,2 @@
 cf3664324a2dc5148ad521414c20fdfdc9726ecb  weblevels\606eb9c4caea30161adf1f8afc3945e0\black.nw-14900.code
+# COREO: 169 records = 1 baseline + 168 one-bit cases across 21-byte zero buffer; each output is 20 bytes.

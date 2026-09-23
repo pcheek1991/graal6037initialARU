@@ -1,1 +1,2 @@
 ae3b5dd5c2ca62573bf0997bbebd33f3aa9ce637  levels\ganis\editorcursor2.gani
+# COREO: 169 records = 1 baseline + 168 one-bit cases across 21-byte zero buffer; each output is 20 bytes.

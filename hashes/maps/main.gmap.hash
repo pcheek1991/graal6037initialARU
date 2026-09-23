@@ -1,1 +1,2 @@
 b9e4b48015078b4e5d2e5dd1a86b4948571713ec  maps\main.gmap
+# COREO: 169 records = 1 baseline + 168 one-bit cases across 21-byte zero buffer; each output is 20 bytes.

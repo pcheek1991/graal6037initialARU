@@ -1,1 +1,2 @@
 e180636919264d74692c0fc26d5c109b6f9a8e46  sounds\bomyload4.wav
+# COREO: 169 records = 1 baseline + 168 one-bit cases across 21-byte zero buffer; each output is 20 bytes.

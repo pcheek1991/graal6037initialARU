@@ -1,1 +1,2 @@
 ce0e17371947ab7fb6b230db0e7c1edecfa995f6  levels\ganis\eggstill.gani
+# COREO: 169 records = 1 baseline + 168 one-bit cases across 21-byte zero buffer; each output is 20 bytes.

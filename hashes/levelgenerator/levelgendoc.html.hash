@@ -1,1 +1,2 @@
 cadbd8318855ed432c72988c9fa6c08bc877f833  levelgenerator\levelgendoc.html
+# COREO: 169 records = 1 baseline + 168 one-bit cases across 21-byte zero buffer; each output is 20 bytes.

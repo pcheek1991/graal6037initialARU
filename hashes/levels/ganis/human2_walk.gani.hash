@@ -1,1 +1,2 @@
 55d38cdbd2d3a1d66db9b7c36e9669b66e9df417  levels\ganis\human2_walk.gani
+# COREO: 169 records = 1 baseline + 168 one-bit cases across 21-byte zero buffer; each output is 20 bytes.

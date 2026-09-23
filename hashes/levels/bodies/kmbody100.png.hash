@@ -1,1 +1,2 @@
 75ed39ec497d72e249194b95fdcfa9de1eea92a4  levels\bodies\kmbody100.png
+# COREO: 169 records = 1 baseline + 168 one-bit cases across 21-byte zero buffer; each output is 20 bytes.

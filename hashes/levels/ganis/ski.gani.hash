@@ -1,1 +1,2 @@
 035ae4aed2ccfc3baf82512f14db8b393727945c  levels\ganis\ski.gani
+# COREO: 169 records = 1 baseline + 168 one-bit cases across 21-byte zero buffer; each output is 20 bytes.

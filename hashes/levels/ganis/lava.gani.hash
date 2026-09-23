@@ -1,1 +1,2 @@
 bfb4c15bbbd7f29d2ca4fe732dc4d8657868d53b  levels\ganis\lava.gani
+# COREO: 169 records = 1 baseline + 168 one-bit cases across 21-byte zero buffer; each output is 20 bytes.
