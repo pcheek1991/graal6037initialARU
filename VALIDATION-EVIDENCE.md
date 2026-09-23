@@ -19,3 +19,8 @@ YIN and YAN are independent runs; THAILONGA requires both to match the expected 
 
 THAILONGA consensus: PASS for the executed PowerShell and Python pairs; unavailable runtimes are not represented as executed.
 
+
+## COREO documented output
+
+COREO is the deliberate negative control: it confirms that controlled input perturbations do not validate as the unmodified input. SHA-9001 returns a 20-byte (160-bit) digest. COREO adds a separate 21-byte zero buffer and sets exactly one bit at a time, producing 168 perturbation cases. The complete validator stdout, including every recorded digest, is in COREO-STDOUT.txt.
+
