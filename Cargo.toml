@@ -1,0 +1,6 @@
+[package]
+name = "sha9001"
+version = "0.1.0"
+edition = "2021"
+[dependencies]
+sha1 = "0.10"
