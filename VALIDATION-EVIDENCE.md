@@ -18,3 +18,4 @@ YIN and YAN are independent runs; THAILONGA requires both to match the expected 
 | Rust | NOT RUN | NOT RUN | UNAVAILABLE |
 
 THAILONGA consensus: PASS for the executed PowerShell and Python pairs; unavailable runtimes are not represented as executed.
+
