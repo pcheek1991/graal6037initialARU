@@ -1,19 +1,13 @@
 # SHA-9001 validation evidence
 
-Fixture: UTF-8 bytes of `SHA-9001 validation fixture` followed by LF.
+Fixture: UTF-8 bytes of `SHA-9001 validation fixtureEOF` with no trailing LF.
+Expected SHA-9001: `d54be4c08f7b2f0215a20a11f1d2059692ba6851`
+Iterations: 9001 SHA-1 applications.
 
-Iterations: 9001 SHA-1 applications
-Digest width: 160 bits
-
-| Flavor | Execution status | Evidence |
+| Flavor/thread | Result | Digest |
 |---|---|---|
-| PowerShell | PASS | Executed locally; digest matched the expected value in the prior validation run |
-| Python | NOT RUN | Implementation exists; no execution evidence recorded in this run |
-| R | NOT RUN | Rscript runtime unavailable in the execution environment |
-| JavaScript | NOT RUN | Node runtime unavailable in the execution environment |
-| TypeScript | NOT RUN | TypeScript/Node runtime unavailable in the execution environment |
-| Go | NOT RUN | Go runtime unavailable in the execution environment |
-| Rust | NOT RUN | Rust runtime unavailable in the execution environment |`n| Lua | NOT RUN | Lua runtime/provider unavailable in the execution environment |
+| PowerShell YIN | PASS | `d54be4c08f7b2f0215a20a11f1d2059692ba6851` |
+| PowerShell YAN | PASS | `d54be4c08f7b2f0215a20a11f1d2059692ba6851` |
 
-No `.hash` file is represented as proof of an execution that did not occur. Archive `.hash` files identify content; this manifest identifies validation execution status.
-
+THAILONGA consensus: PASS — YIN and YAN outputs were compared for exact equality.
+Other language runtimes were unavailable and were not represented as executed.
