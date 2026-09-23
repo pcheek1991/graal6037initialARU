@@ -13,6 +13,7 @@ Digest width: 160 bits
 | JavaScript | NOT RUN | Node runtime unavailable in the execution environment |
 | TypeScript | NOT RUN | TypeScript/Node runtime unavailable in the execution environment |
 | Go | NOT RUN | Go runtime unavailable in the execution environment |
-| Rust | NOT RUN | Rust runtime unavailable in the execution environment |
+| Rust | NOT RUN | Rust runtime unavailable in the execution environment |`n| Lua | NOT RUN | Lua runtime/provider unavailable in the execution environment |
 
 No `.hash` file is represented as proof of an execution that did not occur. Archive `.hash` files identify content; this manifest identifies validation execution status.
+
