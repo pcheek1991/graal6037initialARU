@@ -1,2 +1,4 @@
-function Get-SHA9001 { param([Parameter(Mandatory)][byte[]]$Data); $digest=$Data; for($i=0;$i-lt9001;$i++){ $h=[Security.Cryptography.SHA1]::Create(); try{$digest=$h.ComputeHash($digest)}finally{$h.Dispose()} }; return $digest }
-function Get-SHA9001Hex { param([Parameter(Mandatory)][byte[]]$Data); -join (Get-SHA9001 $Data | ForEach-Object {$_.ToString('x2')}) }
+function ConvertTo-Rot13 { param([Parameter(Mandatory)][string]$Text); -join ($Text.ToCharArray() | ForEach-Object { $c=[int][char]$_; if($c-ge65-and$c-le90){[char](65+(($c-65+13)%26))}elseif($c-ge97-and$c-le122){[char](97+(($c-97+13)%26))}else{$_} }) }
+function Invoke-SHA1 { param([Parameter(Mandatory)][byte[]]$Data); $h=[Security.Cryptography.SHA1]::Create(); try{$h.ComputeHash($Data)}finally{$h.Dispose()} }
+function Get-SHA9001 { param([Parameter(Mandatory)][byte[]]$Data); $d=$Data; for($i=1;$i-le9001;$i++){$d=Invoke-SHA1 $d}; $d }
+function Get-SHA9001RuntimeRegistry { param([byte[]]$Data,[string]$Filename); $r=@{};$d=$Data;for($i=1;$i-le9001;$i++){ $d=Invoke-SHA1 $d; $hex=(-join($d|%{$_.ToString('x2')}));$r["DIM $Filename"]=$hex;$r["MID ${Filename}:$i"]=ConvertTo-Rot13 $hex }; [pscustomobject]@{Registry=$r;Digest=$d} }

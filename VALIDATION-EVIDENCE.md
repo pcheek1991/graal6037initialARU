@@ -11,3 +11,10 @@ Iterations: 9001 SHA-1 applications.
 
 THAILONGA consensus: PASS — YIN and YAN outputs were compared for exact equality.
 Other language runtimes were unavailable and were not represented as executed.
+
+## COREO negative-control validation
+
+Original digest: `d54be4c08f7b2f0215a20a11f1d2059692ba6851`
+Bit-distorted digest: `99a89625ac0658f135f2164eeb0937e1574e9356`
+COREO expected mismatch: **True**
+

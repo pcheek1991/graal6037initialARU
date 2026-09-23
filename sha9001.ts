@@ -1,2 +1,4 @@
 import { createHash } from "node:crypto";
-export function sha9001(data: Uint8Array): Buffer { let digest = Buffer.from(data); for (let i = 0; i < 9001; i++) digest = createHash("sha1").update(digest).digest(); return digest; }
+export function rot13(text: string): string { return text.replace(/[A-Za-z]/g, c => String.fromCharCode((c <= "Z" ? 65 : 97) + (c.charCodeAt(0) - (c <= "Z" ? 65 : 97) + 13) % 26)); }
+export function sha9001(data: Uint8Array): Buffer { let digest = Buffer.from(data); for (let i = 1; i <= 9001; i++) digest = createHash("sha1").update(digest).digest(); return digest; }
+export function runtimeRegistry(data: Uint8Array, filename: string): { registry: Record<string,string>, digest: Buffer } { const registry: Record<string,string> = {}; let digest = Buffer.from(data); for (let i = 1; i <= 9001; i++) { digest = createHash("sha1").update(digest).digest(); const h = digest.toString("hex"); registry[`DIM ${filename}`] = h; registry[`MID ${filename}:${i}`] = rot13(h); } return { registry, digest }; }

@@ -1,2 +1,3 @@
-sha9001 <- function(data) { if (!requireNamespace("openssl", quietly=TRUE)) stop("Install openssl"); digest <- as.raw(data); for(i in seq_len(9001)) digest <- openssl::sha1(digest, raw=TRUE); digest }
-sha9001_file <- function(path) sha9001(readBin(path,"raw",n=file.info(path)$size))
+rot13 <- function(text) chartr("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz", "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm", text)
+sha9001 <- function(data) { if (!requireNamespace("openssl", quietly=TRUE)) stop("Install openssl"); digest<-as.raw(data); for(i in seq_len(9001)) digest<-openssl::sha1(digest, raw=TRUE); digest }
+runtime_registry <- function(data, filename) { e<-new.env(parent=.GlobalEnv); digest<-as.raw(data); for(i in seq_len(9001)){digest<-openssl::sha1(digest,raw=TRUE); h<-paste(sprintf("%02x",as.integer(digest)),collapse=""); assign(paste0("DIM ",filename),h,envir=e); assign(paste0("MID ",filename,":",i),rot13(h),envir=e)}; list(registry=e,digest=digest) }

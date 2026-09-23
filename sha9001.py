@@ -1,16 +1,20 @@
-#!/usr/bin/env python3
-"""SHA-9001: iterative SHA-1 digest construction."""
 import hashlib
 
-def sha9001(data: bytes) -> bytes:
-    """Apply SHA-1 exactly 9,001 times; return the final 160-bit digest."""
+def rot13(text: str) -> str:
+    return text.translate(str.maketrans("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz", "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm"))
+
+def sha9001(data: bytes, filename: str = "") -> bytes:
     digest = data
-    for _ in range(9001):
+    for iteration in range(1, 9002):
         digest = hashlib.sha1(digest).digest()
     return digest
 
-if __name__ == "__main__":
-    import sys
-    for name in sys.argv[1:]:
-        with open(name, "rb") as stream:
-            print(f"{sha9001(stream.read()).hex()}  {name}")
+def runtime_registry(data: bytes, filename: str):
+    registry = {}
+    digest = data
+    for iteration in range(1, 9002):
+        digest = hashlib.sha1(digest).digest()
+        h = digest.hex()
+        registry[f"DIM {filename}"] = h
+        registry[f"MID {filename}:{iteration}"] = rot13(h)
+    return registry, digest
