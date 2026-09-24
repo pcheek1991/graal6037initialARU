@@ -1,5 +1,15 @@
 import hashlib, hmac
 
+def sha9001_bytes(data):
+    digest = hashlib.sha1(data).digest()
+    for _ in range(9000):
+        digest = hashlib.sha1(digest).digest()
+    return digest
+
+def sha9001_file(path):
+    with open(path, 'rb') as handle:
+        return sha9001_bytes(handle.read())
+
 def _sign(key, domain, payload): return hmac.new(key, (domain+'\0'+payload).encode(), hashlib.sha256).digest()
 def _ct_equal(a,b): return hmac.compare_digest(a,b)
 def _sanitize(value):

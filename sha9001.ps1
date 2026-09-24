@@ -1,3 +1,13 @@
+function Get-SHA9001Bytes {
+  param([byte[]]$Data)
+  $sha=[Security.Cryptography.SHA1]::Create()
+  try { $digest=$sha.ComputeHash($Data); for($i=1;$i -le 9000;$i++){ $digest=$sha.ComputeHash($digest) }; return $digest }
+  finally { $sha.Dispose() }
+}
+function Get-SHA9001Hex {
+  param([byte[]]$Data)
+  -join (Get-SHA9001Bytes $Data | ForEach-Object { '{0:x2}' -f $_ })
+}
 function ConvertTo-SignedRot {
   param([string]$Value,[int]$Distance,[byte[]]$Key)
   if ($null -eq $Value) { throw 'ROT input is null' }
