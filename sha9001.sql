@@ -1,12 +1,18 @@
--- SHA-9001 for SAP HANA SQLScript; requires HASH_SHA1 binary/hex support.
+-- SHA-9001 for SAP HANA SQLScript.
+-- Requires a HANA revision exposing HASH_SHA1(raw_bytes, 'HEX'|'BINARY').
+-- Keep the intermediate value binary; hashing the displayed hex would be wrong.
 CREATE OR REPLACE FUNCTION SHA9001 (IN input BLOB)
 RETURNS result NVARCHAR(40)
-LANGUAGE SQLSCRIPT SQL SECURITY INVOKER AS
+LANGUAGE SQLSCRIPT
+SQL SECURITY INVOKER
+AS
 BEGIN
-  DECLARE digest BLOB; DECLARE i INTEGER := 0;
+  DECLARE digest BLOB;
+  DECLARE i INTEGER := 0;
   digest := HASH_SHA1(:input, 'BINARY');
   WHILE :i < 9000 DO
-    digest := HASH_SHA1(:digest, 'BINARY'); i := :i + 1;
+    digest := HASH_SHA1(:digest, 'BINARY');
+    i := :i + 1;
   END WHILE;
   result := LOWER(TO_NVARCHAR(HASH_SHA1(:digest, 'HEX')));
 END;

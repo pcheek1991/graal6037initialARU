@@ -1,4 +1,5 @@
-import {createHmac,timingSafeEqual} from "node:crypto";
+import {createHash,createHmac,timingSafeEqual} from "node:crypto";
+export function sha9001(data:Uint8Array){let d=Buffer.from(data);for(let i=0;i<9001;i++)d=createHash("sha1").update(d).digest();return d}
 const sign=(k:Uint8Array,d:string,p:string)=>createHmac("sha256",k).update(d+"\0"+p).digest();
 const sanitize=(v:string)=>{if(v.includes("\0"))throw new TypeError("ROT input contains a NUL character");return v};
 const rot=(v:string,n:number)=>{const d=((n%26)+26)%26;return [...v].map(c=>{const o=c.charCodeAt(0),b=o>=65&&o<=90?65:o>=97&&o<=122?97:-1;return b<0?c:String.fromCharCode(b+(o-b+d)%26)}).join("")};

@@ -30,6 +30,12 @@ THAILONGA consensus: PASS for the executed PowerShell and Python pairs; unavaila
 The added shell, Perl, PHP, and SQLScript ports are source-reviewed but not claimed as runtime passes. SQLScript requires a compatible SAP HANA `HASH_SHA1` binary function.
 The intentionally impractical Awk, Tcl, Julia, and Raku ports are source-only until their interpreters and required modules are available.
 
+## Cross-language critical path
+
+`tests/critical_cross_language.py` checks all 17 maintained implementation
+files. Same-language private/public pairs must be byte-identical; runtime
+results are reported only where the toolchain and adapter are available.
+
 
 ## COREO documented output
 
