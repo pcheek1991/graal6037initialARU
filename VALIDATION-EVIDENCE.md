@@ -1,47 +1,32 @@
 # SHA-9001 validation evidence
 
-Fixture: UTF-8 bytes of `SHA-9001 validation fixtureEOF` with no trailing LF.
-Expected SHA-9001: `d54be4c08f7b2f0215a20a11f1d2059692ba6851`
-Iterations: 9001 SHA-1 applications.
-YIN and YAN are independent runs; THAILONGA requires both to match the expected digest.
+Fixture: UTF-8 bytes of `SHA-9001 validation fixtureEOF`, with no trailing LF.
+Expected SHA-9001: `d54be4c08f7b2f0215a20a11f1d2059692ba6851`.
+Construction: 9,001 SHA-1 applications; output width: 160 bits.
 
-| Flavor | YIN | YAN | Status |
-|---|---|---|---|
-| PowerShell | `d54be4c08f7b2f0215a20a11f1d2059692ba6851` | `d54be4c08f7b2f0215a20a11f1d2059692ba6851` | PASS |
-| Python | `d54be4c08f7b2f0215a20a11f1d2059692ba6851` | `d54be4c08f7b2f0215a20a11f1d2059692ba6851` | PASS |
-| Lua | NOT RUN | NOT RUN | UNAVAILABLE |
-| Go | NOT RUN | NOT RUN | UNAVAILABLE |
-| TypeScript | NOT RUN | NOT RUN | UNAVAILABLE |
-| R | NOT RUN | NOT RUN | UNAVAILABLE |
-| JavaScript | NOT RUN | NOT RUN | UNAVAILABLE |
-| Ruby | NOT RUN | NOT RUN | UNAVAILABLE |
-| Rust | NOT RUN | NOT RUN | UNAVAILABLE |
-| POSIX shell | NOT RUN | NOT RUN | UNAVAILABLE |
-| Perl | NOT RUN | NOT RUN | UNAVAILABLE |
-| PHP | NOT RUN | NOT RUN | UNAVAILABLE |
-| SAP HANA SQLScript | NOT RUN | NOT RUN | UNAVAILABLE |
-| Awk | NOT RUN | NOT RUN | UNAVAILABLE |
-| Tcl | NOT RUN | NOT RUN | UNAVAILABLE |
-| Julia | NOT RUN | NOT RUN | UNAVAILABLE |
-| Raku | NOT RUN | NOT RUN | UNAVAILABLE |
+The current per-language YIN/YAN/COREO results, including `PASS`, `BLOCKED`,
+and `N/A` states, are maintained in `YIN-YAN-COREO-RESULTS.md`. That file is
+the authoritative execution matrix; source parity is not described as runtime
+execution.
 
-THAILONGA consensus: PASS for the executed PowerShell and Python pairs; unavailable runtimes are not represented as executed.
+## PowerShell gold standard
 
-The added shell, Perl, PHP, and SQLScript ports are source-reviewed but not claimed as runtime passes. SQLScript requires a compatible SAP HANA `HASH_SHA1` binary function.
-The intentionally impractical Awk, Tcl, Julia, and Raku ports are source-only until their interpreters and required modules are available.
+`sha9001.ps1` matches the source content at revision
+`6fccadd22ed2cebe91634bce8413db380dcc1766` and runs as the native PowerShell
+implementation. `sha9001-csharp.ps1` is a second, separate project that uses
+PowerShell `Add-Type` to compile its embedded C# SHA/ROT implementation. They
+are independently exercised by `tests/test_sha9001.ps1` and
+`tests/test_sha9001-csharp.ps1`. Both produce the expected fixture digest.
 
-## Cross-language critical path
+The ROT golden vectors are documented in `SHA9001.md` and covered by both
+PowerShell test scripts. The historical `ConvertTo-SignedRot` name does not
+imply authentication: the reference calculates HMAC outputs and XORs each
+output with itself, which always yields zero. The key is retained for API
+compatibility only. Do not use the ROT functions as a security control.
 
-`tests/critical_cross_language.py` checks all 17 maintained implementation
-files. Same-language private/public pairs must be byte-identical; runtime
-results are reported only where the toolchain and adapter are available.
+## COREO definition
 
-
-## COREO documented output
-
-COREO is the deliberate negative control: it confirms that controlled input perturbations do not validate as the unmodified input. SHA-9001 returns a 20-byte (160-bit) digest. COREO adds a separate 21-byte zero buffer and sets exactly one bit at a time, producing 168 perturbation cases. The complete validator stdout, including every recorded digest, is in COREO-STDOUT.txt.
-
-
-## COREO output level
-
-COREO records 169 cases: one baseline case plus 168 one-bit cases across a 21-byte buffer. Each case produces a 20-byte SHA-9001 digest. The complete stdout trace is in COREO-STDOUT.txt, and every archive .hash file carries the same COREO mode metadata.
+COREO hashes a 21-byte all-zero baseline and each of the 168 possible
+one-bit perturbations. A passing control has 168 perturbed digests different
+from the baseline. COREO is a negative control, not an authentication or
+collision-resistance claim.

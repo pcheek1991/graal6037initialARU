@@ -23,6 +23,7 @@ IMPLEMENTATIONS = {
     "perl": ("sha9001.pl", "perl"),
     "php": ("sha9001.php", "php"),
     "powershell": ("sha9001.ps1", "powershell"),
+    "powershell-csharp": ("sha9001-csharp.ps1", "powershell"),
     "python": ("sha9001.py", "python"),
     "r": ("sha9001.R", "Rscript"),
     "raku": ("sha9001.raku", "raku"),
@@ -67,8 +68,22 @@ def main():
             if not executable:
                 result(name, "SKIP", f"{runtime} unavailable (source parity PASS)")
                 continue
-            # Only adapters with a stable file CLI are executed here.
-            if name == "python":
+            if name in ("powershell", "powershell-csharp"):
+                function = "Get-SHA9001Hex" if name == "powershell" else "Get-SHA9001CSharpHex"
+                script_path = str(private).replace("'", "''")
+                fixture_path = str(fixture).replace("'", "''")
+                command = (
+                    f". '{script_path}'; "
+                    f"$bytes=[IO.File]::ReadAllBytes('{fixture_path}'); "
+                    f"{function} $bytes"
+                )
+                completed = subprocess.run(
+                    [executable, "-NoProfile", "-NonInteractive", "-Command", command],
+                    capture_output=True, text=True, check=False,
+                )
+                actual = completed.stdout.strip()
+                result(name, "PASS" if actual == EXPECTED else "FAIL", actual or completed.stderr.strip())
+            elif name == "python":
                 code = (
                     "import sys; sys.path.insert(0, sys.argv[1]); "
                     "import sha9001; print(sha9001.sha9001_file(sys.argv[2]).hex())"

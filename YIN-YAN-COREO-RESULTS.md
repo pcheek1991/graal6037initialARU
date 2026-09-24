@@ -52,3 +52,19 @@ The complete native stdout excerpt is in
 `YIN-YAN-COREO-PS-STDOUT.txt`. SKIP means the required runtime/provider was
 not available. BLOCKED means the runtime was present but the attempted
 adapter could not start safely on this host. Neither status is a pass.
+
+## ROT compatibility vectors
+
+The compatibility vectors are `Abc xyz!` -> `Nop klm!` -> `Abc xyz!`,
+`ROTN("Az", -1)` -> `Zy`, and `ROTN("Aé!", 13)` -> `Né!`. The key argument is
+compatibility-only and does not authenticate the request.
+
+| Flavor | ROT vectors | Evidence |
+|---|---|---|
+| `.R`, `.awk`, `.go`, `.jl`, `.js`, `.php`, `.pl`, `.ps1` native, `.ps1` embedded C#, `.py`, `.raku`, `.tcl`, `.ts` | PASS | Executed golden vectors on the available runtime; PowerShell tests also verify NUL rejection |
+| `.lua` | NOT RUN | No Lua executable/provider module available |
+| `.rb` | BLOCKED | Ruby executable fails side-by-side startup |
+| `.rs` | BLOCKED | Rust linker unavailable |
+| `.sh` | BLOCKED | Git Bash child process startup fails with `0xC0000142` |
+| `.sql` | SOURCE ONLY | HANA `TRANSLATE` implementation added; no HANA instance available; NUL handling not claimed |
+| `.acl` | N/A | No maintained `.acl` implementation |
