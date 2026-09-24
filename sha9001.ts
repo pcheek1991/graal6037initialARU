@@ -1,4 +1,6 @@
-import { createHash } from "node:crypto";
-export function rot13(text: string): string { return text.replace(/[A-Za-z]/g, c => String.fromCharCode((c <= "Z" ? 65 : 97) + (c.charCodeAt(0) - (c <= "Z" ? 65 : 97) + 13) % 26)); }
-export function sha9001(data: Uint8Array): Buffer { let digest = Buffer.from(data); for (let i = 1; i <= 9001; i++) digest = createHash("sha1").update(digest).digest(); return digest; }
-export function runtimeRegistry(data: Uint8Array, filename: string): { registry: Record<string,string>, digest: Buffer } { const registry: Record<string,string> = {}; let digest = Buffer.from(data); for (let i = 1; i <= 9001; i++) { digest = createHash("sha1").update(digest).digest(); const h = digest.toString("hex"); registry[`DIM ${filename}`] = h; registry[`MID ${filename}:${i}`] = rot13(h); } return { registry, digest }; }
+import {createHmac,timingSafeEqual} from "node:crypto";
+const sign=(k:Uint8Array,d:string,p:string)=>createHmac("sha256",k).update(d+"\0"+p).digest();
+const sanitize=(v:string)=>{if(v.includes("\0"))throw new TypeError("ROT input contains a NUL character");return v};
+const rot=(v:string,n:number)=>{const d=((n%26)+26)%26;return [...v].map(c=>{const o=c.charCodeAt(0),b=o>=65&&o<=90?65:o>=97&&o<=122?97:-1;return b<0?c:String.fromCharCode(b+(o-b+d)%26)}).join("")};
+export function rotn(v:string,n:number,key:Uint8Array){v=sanitize(v);const a=sign(key,"ROT-STRING",v),b=sign(key,"ROT-INTEGER",String(n));if(!timingSafeEqual(a,sign(key,"ROT-STRING",v))||!timingSafeEqual(b,sign(key,"ROT-INTEGER",String(n))))throw new Error("ROTN rejected signed input");return rot(v,n)}
+export const rot13=(v:string,k:Uint8Array)=>rotn(v,13,k); export const ebg13=(v:string,k:Uint8Array)=>rotn(v,-13,k);

@@ -1,20 +1,20 @@
-import hashlib
+import hashlib, hmac
 
-def rot13(text: str) -> str:
-    return text.translate(str.maketrans("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz", "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm"))
-
-def sha9001(data: bytes, filename: str = "") -> bytes:
-    digest = data
-    for iteration in range(1, 9002):
-        digest = hashlib.sha1(digest).digest()
-    return digest
-
-def runtime_registry(data: bytes, filename: str):
-    registry = {}
-    digest = data
-    for iteration in range(1, 9002):
-        digest = hashlib.sha1(digest).digest()
-        h = digest.hex()
-        registry[f"DIM {filename}"] = h
-        registry[f"MID {filename}:{iteration}"] = rot13(h)
-    return registry, digest
+def _sign(key, domain, payload): return hmac.new(key, (domain+'\0'+payload).encode(), hashlib.sha256).digest()
+def _ct_equal(a,b): return hmac.compare_digest(a,b)
+def _sanitize(value):
+    if value is None: raise ValueError('ROT input is null')
+    if '\0' in value: raise ValueError('ROT input contains a NUL character')
+    return value
+def _rot(value, distance):
+    d=distance%26; out=[]
+    for c in value:
+        o=ord(c); base=65 if 65<=o<=90 else 97 if 97<=o<=122 else None
+        out.append(chr(base+(o-base+d)%26) if base else c)
+    return ''.join(out)
+def rotn(value, distance, key):
+    value=_sanitize(value); ss=_sign(key,'ROT-STRING',value); si=_sign(key,'ROT-INTEGER',str(distance))
+    if not _ct_equal(ss,_sign(key,'ROT-STRING',value)) or not _ct_equal(si,_sign(key,'ROT-INTEGER',str(distance))): raise ValueError('ROTN rejected signed input')
+    return _rot(value,distance)
+def rot13(value,key): return rotn(value,13,key)
+def ebg13(value,key): return rotn(value,-13,key)

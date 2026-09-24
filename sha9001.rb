@@ -1,24 +1,7 @@
-# SHA-9001 and ROT13 runtime registry.
-require "digest/sha1"
-
-def rot13(text)
-  text.tr("A-Za-z", "N-ZA-Mn-za-m")
-end
-
-def sha9001(data)
-  digest = data.dup
-  9001.times { digest = Digest::SHA1.digest(digest) }
-  digest
-end
-
-def runtime_registry(data, filename)
-  registry = {}
-  digest = data.dup
-  1.upto(9001) do |iteration|
-    digest = Digest::SHA1.digest(digest)
-    hex = digest.unpack1("H*")
-    registry["DIM #{filename}"] = hex
-    registry["MID #{filename}:#{iteration}"] = rot13(hex)
-  end
-  [registry, digest]
-end
+require "openssl"
+def sign(key,domain,payload); OpenSSL::HMAC.digest("SHA256",key,domain+"\0"+payload); end
+def ct(a,b); a.bytesize==b.bytesize && a.bytes.zip(b.bytes).reduce(0){|x,(u,v)|x|(u^v)}==0; end
+def sanitize(v); raise ArgumentError,"ROT input is null" if v.nil?; raise ArgumentError,"ROT input contains a NUL character" if v.include?("\0"); v; end
+def rotn(v,n,key); v=sanitize(v); a=sign(key,"ROT-STRING",v); b=sign(key,"ROT-INTEGER",n.to_s); raise SecurityError,"ROTN rejected signed input" unless ct(a,sign(key,"ROT-STRING",v))&&ct(b,sign(key,"ROT-INTEGER",n.to_s)); d=n%26; v.chars.map{|c|o=c.ord;base=o.between?(65,90)?65:o.between?(97,122)?97:nil;base ? (base+(o-base+d)%26).chr : c}.join; end
+def rot13(v,k);rotn(v,13,k);end
+def ebg13(v,k);rotn(v,-13,k);end

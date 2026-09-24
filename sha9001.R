@@ -1,3 +1,3 @@
-rot13 <- function(text) chartr("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz", "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm", text)
-sha9001 <- function(data) { if (!requireNamespace("openssl", quietly=TRUE)) stop("Install openssl"); digest<-as.raw(data); for(i in seq_len(9001)) digest<-openssl::sha1(digest, raw=TRUE); digest }
-runtime_registry <- function(data, filename) { e<-new.env(parent=.GlobalEnv); digest<-as.raw(data); for(i in seq_len(9001)){digest<-openssl::sha1(digest,raw=TRUE); h<-paste(sprintf("%02x",as.integer(digest)),collapse=""); assign(paste0("DIM ",filename),h,envir=e); assign(paste0("MID ",filename,":",i),rot13(h),envir=e)}; list(registry=e,digest=digest) }
+rot_sign <- function(key, domain, payload) openssl::sha256(charToRaw(paste0(domain,"\0",payload)), key=key)
+rot13 <- function(value,key) { if(grepl("\0",value,fixed=TRUE)) stop("ROT input contains NUL"); d<-13 %% 26; chars<-strsplit(value,"")[[1]]; sapply(chars,function(c){o<-utf8ToInt(c);b<-if(o>=65&&o<=90)65 else if(o>=97&&o<=122)97 else NA; if(is.na(b))c else intToUtf8(b+(o-b+d)%%26)},USE.NAMES=FALSE)|>paste0(collapse="") }
+ebg13 <- function(value,key) { rot13(value,key) }
