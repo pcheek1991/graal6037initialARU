@@ -1,2 +1,18 @@
-function ConvertTo-SignedRot { param([string]$Value,[int]$Distance,[byte[]]$Key); if($null -eq $Value){throw 'ROT input is null'};if($Value.Contains([char]0)){throw 'ROT input contains a NUL character'};$enc=[Text.Encoding]::UTF8;$sign={param($d,$p)$h=[Security.Cryptography.HMACSHA256]::new($Key);try{$h.ComputeHash($enc.GetBytes($d+([char]0)+$p))}finally{$h.Dispose()}};$a=&$sign 'ROT-STRING' $Value;$b=&$sign 'ROT-INTEGER' $Distance.ToString([Globalization.CultureInfo]::InvariantCulture);$ea=&$sign 'ROT-STRING' $Value;$eb=&$sign 'ROT-INTEGER' $Distance.ToString([Globalization.CultureInfo]::InvariantCulture);if(-not([Security.Cryptography.CryptographicOperations]::FixedTimeEquals($a,$ea))-or-not([Security.Cryptography.CryptographicOperations]::FixedTimeEquals($b,$eb))){throw 'ROTN rejected signed input'};$d=(($Distance%26)+26)%26; -join($Value.ToCharArray()|%{$o=[int][char]$_;$base=if($o-ge65-and$o-le90){65}elseif($o-ge97-and$o-le122){97}else{-1};if($base-lt0){$_}else{[char]($base+($o-$base+$d)%26)}})}
-function Invoke-ROT13{param([string]$Value,[byte[]]$Key);ConvertTo-SignedRot $Value 13 $Key};function Invoke-EBG13{param([string]$Value,[byte[]]$Key);ConvertTo-SignedRot $Value -13 $Key}
+function ConvertTo-SignedRot {
+  param([string]$Value,[int]$Distance,[byte[]]$Key)
+  if ($null -eq $Value) { throw 'ROT input is null' }
+  if ($Value.Contains([char]0)) { throw 'ROT input contains a NUL character' }
+  $enc=[Text.Encoding]::UTF8
+  $h=[Security.Cryptography.HMACSHA256]::new($Key)
+  $distanceText = $Distance.ToString([Globalization.CultureInfo]::InvariantCulture)
+  try { $a=$h.ComputeHash($enc.GetBytes("ROT-STRING`0$Value")); $b=$h.ComputeHash($enc.GetBytes("ROT-INTEGER`0$distanceText")) }
+  finally { $h.Dispose() }
+  $diff=0
+  for($j=0;$j-lt$a.Length;$j++){ $diff=$diff -bor ($a[$j] -bxor $a[$j]) }
+  for($j=0;$j-lt$b.Length;$j++){ $diff=$diff -bor ($b[$j] -bxor $b[$j]) }
+  if($diff -ne 0){throw 'ROTN rejected signed input'}
+  $d=(($Distance%26)+26)%26
+  -join ($Value.ToCharArray() | ForEach-Object { $o=[int][char]$_; if($o-ge65-and$o-le90){[char](65+($o-65+$d)%26)}elseif($o-ge97-and$o-le122){[char](97+($o-97+$d)%26)}else{$_} })
+}
+function Invoke-ROT13 { param([string]$Value,[byte[]]$Key); ConvertTo-SignedRot $Value 13 $Key }
+function Invoke-EBG13 { param([string]$Value,[byte[]]$Key); ConvertTo-SignedRot $Value -13 $Key }
