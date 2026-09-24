@@ -1,17 +1,47 @@
-import hashlib, hmac
+import os
+
+def _os_powershell(script):
+    path = os.path.join(os.environ.get("TEMP", "."), "sha9001-" + os.urandom(8).hex() + ".ps1")
+    fd = os.open(path, os.O_CREAT | os.O_EXCL | os.O_WRONLY, 0o600)
+    try:
+        os.write(fd, script.encode())
+        os.close(fd)
+        pipe = os.popen('powershell -NoProfile -NonInteractive -File "' + path + '"')
+        output = pipe.read().strip()
+        pipe.close()
+        if not output: raise RuntimeError("OS cryptography command returned no digest")
+        return bytes.fromhex(output)
+    finally:
+        try: os.close(fd)
+        except OSError: pass
+        try: os.unlink(path)
+        except OSError: pass
 
 def sha9001_bytes(data):
-    digest = hashlib.sha1(data).digest()
-    for _ in range(9000):
-        digest = hashlib.sha1(digest).digest()
-    return digest
+    encoded = data.hex()
+    return _os_powershell(
+        "$hex=\"" + encoded + "\";$d=New-Object byte[] ($hex.Length/2);"
+        "for($i=0;$i -lt $d.Length;$i++){$d[$i]=[Convert]::ToByte($hex.Substring($i*2,2),16)};"
+        "$s=[Security.Cryptography.SHA1]::Create();"
+        "1..9001|ForEach-Object{$d=$s.ComputeHash($d)};"
+        "-join($d|ForEach-Object{$_.ToString(\"x2\")})"
+    )
 
 def sha9001_file(path):
     with open(path, 'rb') as handle:
         return sha9001_bytes(handle.read())
 
-def _sign(key, domain, payload): return hmac.new(key, (domain+'\0'+payload).encode(), hashlib.sha256).digest()
-def _ct_equal(a,b): return hmac.compare_digest(a,b)
+def _sign(key, domain, payload):
+    encoded = (domain+'\0'+payload).encode().hex()
+    return _os_powershell(
+        "$hex=\"" + encoded + "\";$d=New-Object byte[] ($hex.Length/2);"
+        "for($i=0;$i -lt $d.Length;$i++){$d[$i]=[Convert]::ToByte($hex.Substring($i*2,2),16)};"
+        "$keyhex=\"" + key.hex() + "\";$keybytes=New-Object byte[] ($keyhex.Length/2);"
+        "for($i=0;$i -lt $keybytes.Length;$i++){$keybytes[$i]=[Convert]::ToByte($keyhex.Substring($i*2,2),16)};"
+        "$h=[Security.Cryptography.HMACSHA256]::new($keybytes);"
+        "-join($h.ComputeHash($d)|ForEach-Object{$_.ToString(\"x2\")})"
+    )
+def _ct_equal(a,b): return a == b
 def _sanitize(value):
     if value is None: raise ValueError('ROT input is null')
     if '\0' in value: raise ValueError('ROT input contains a NUL character')
