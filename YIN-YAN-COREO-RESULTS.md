@@ -14,22 +14,22 @@ different bit. Every COREO input was hashed for 9,001 SHA-1 applications.
 |---|---|---|---|---|
 | `.R` | PASS | PASS | PASS | R 4.6.1 with user-installed `openssl`; 169 cases, 168 distinct perturbation digests |
 | `.awk` | BLOCKED | BLOCKED | BLOCKED | Git Bash child-process startup failed with `0xC0000142` and fork resource errors |
-| `.go` | SKIP | SKIP | SKIP | Go toolchain unavailable; source has no standalone package/CLI |
+| `.go` | PASS | PASS | PASS | Go 1.27.0; source exercised through a temporary CLI wrapper because the maintained file intentionally has no package declaration; 169 cases, 168 distinct perturbation digests |
 | `.jl` | PASS | PASS | PASS | Julia 1.13.0; corrected soft-scope CLI; 169 cases, 168 distinct perturbation digests |
 | `.js` | PASS | PASS | PASS | Node.js 26.7.0; module adapter; 169 cases, 168 distinct perturbation digests |
-| `.lua` | SKIP | SKIP | SKIP | Lua unavailable; provider is host-dependent |
-| `.php` | SKIP | SKIP | SKIP | PHP unavailable |
+| `.lua` | BLOCKED | BLOCKED | BLOCKED | Lua/LuaJIT package is recorded but no executable/provider module is available |
+| `.php` | PASS | PASS | PASS | PHP 8.4.25; 169 cases, 168 distinct perturbation digests |
 | `.pl` | PASS | PASS | PASS | Git Perl with `Digest::SHA`; 169 cases, 168 distinct perturbation digests |
 | `.ps1` — native PowerShell | PASS | PASS | PASS | Direct PowerShell calls to the .NET SHA-1 provider; 169 cases, 168 distinct perturbation digests |
 | `.ps1` — embedded C# | PASS | PASS | PASS | PowerShell `Add-Type` C# implementation; 169 cases, 168 distinct perturbation digests |
 | `.py` | PASS | PASS | PASS* | Python YIN/YAN completed; COREO performed by the native PowerShell runner because this Python port invokes PowerShell once per digest |
-| `.raku` | SKIP | SKIP | SKIP | Raku unavailable |
-| `.rb` | SKIP | SKIP | SKIP | Ruby unavailable |
-| `.rs` | SKIP | SKIP | SKIP | Rust toolchain unavailable |
+| `.raku` | PASS | PASS | BLOCKED | Rakudo 26.7.1 with `Digest::SHA1`; independent YIN/YAN passed; in-process COREO optimization still exceeded the host time budget |
+| `.rb` | BLOCKED | BLOCKED | BLOCKED | Ruby 3.3 installation fails Windows side-by-side startup |
+| `.rs` | BLOCKED | BLOCKED | BLOCKED | Rust 1.89 toolchain present, but MSVC `link.exe` is unavailable on this host |
 | `.sh` | BLOCKED | BLOCKED | BLOCKED | Git Bash child-process startup failed with `0xC0000142` and fork resource errors |
-| `.sql` | SKIP | SKIP | SKIP | Requires SAP HANA SQLScript and `HASH_SHA1` |
+| `.sql` | BLOCKED | BLOCKED | BLOCKED | Requires SAP HANA SQLScript and `HASH_SHA1`, unavailable on this host |
 | `.acl` | N/A | N/A | N/A | No `.acl` implementation exists in the maintained set |
-| `.ts` | SKIP | SKIP | SKIP | Node/TypeScript runner unavailable |
+| `.ts` | PASS | PASS | PASS | Node.js 26.7.0 native type stripping; 169 cases, 168 distinct perturbation digests |
 
 `*` The Python implementation and the PowerShell implementation use the same
 algorithm, and the native PowerShell COREO run is recorded as the bounded
