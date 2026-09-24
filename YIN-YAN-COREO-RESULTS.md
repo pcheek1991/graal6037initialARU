@@ -6,6 +6,31 @@ The fixture was the UTF-8 byte sequence `SHA-9001 validation fixtureEOF`
 without a trailing line feed. The expected SHA-9001 digest is
 `d54be4c08f7b2f0215a20a11f1d2059692ba6851`.
 
+## Hash-record completeness and provenance
+
+This Markdown file is a summary matrix, not the raw run ledger. The actual
+record audit is `RUN-HASH-COVERAGE.md`.
+
+- All 169 hashes in the existing legacy COREO capture (one baseline plus 168
+  one-bit cases) are now indexed in `COREO-ALL-HASHES.tsv`. The source capture
+  is preserved unchanged and identified by its SHA-256 in that TSV.
+- The legacy COREO capture does not identify its codec or a unique execution
+  ID. Its hashes are therefore recorded as `UNATTRIBUTED`, not assigned to a
+  codec by inference.
+- `run-records-probe\yin.jsonl` contains 19 YIN probe records only; it was
+  explicitly run with YIN only. It contains no YAN or COREO rows.
+- The PowerShell stdout artifacts have YIN/YAN digests, but the native
+  PowerShell file contains only a COREO count and six sampled bit hashes; the
+  embedded-C# file contains only COREO counts. No complete per-codec COREO
+  digest arrays or authoritative per-codec YAN ledger are present.
+- The prior `.py` COREO `PASS*` reused the native PowerShell control; Python
+  itself did not execute COREO. Its status is corrected below to `NOT RUN`.
+
+Consequently, the previous table records execution status, but it is not
+evidence that complete, uniquely keyed YIN/YAN/COREO hash records have been
+persisted for every codec. Missing hashes are not reconstructed from another
+codec's output.
+
 YIN and YAN are separate executions of the same input. COREO is the negative
 control: one 21-byte zero buffer baseline plus 168 inputs with exactly one
 different bit. Every COREO input was hashed for 9,001 SHA-1 applications.
@@ -22,7 +47,7 @@ different bit. Every COREO input was hashed for 9,001 SHA-1 applications.
 | `.pl` | PASS | PASS | PASS | Git Perl with `Digest::SHA`; 169 cases, 168 distinct perturbation digests |
 | `.ps1` — native PowerShell | PASS | PASS | PASS | Direct PowerShell calls to the .NET SHA-1 provider; 169 cases, 168 distinct perturbation digests |
 | `.ps1` — embedded C# | PASS | PASS | PASS | PowerShell `Add-Type` C# implementation; 169 cases, 168 distinct perturbation digests |
-| `.py` | PASS | PASS | PASS* | Python YIN/YAN completed; COREO performed by the native PowerShell runner because this Python port invokes PowerShell once per digest |
+| `.py` | PASS | PASS | NOT RUN | Python YIN/YAN completed; no Python COREO run was recorded |
 | `.raku` | PASS | PASS | BLOCKED | Rakudo 26.7.1 with `Digest::SHA1`; independent YIN/YAN passed; in-process COREO optimization still exceeded the host time budget |
 | `.rb` | BLOCKED | BLOCKED | BLOCKED | Ruby 3.3 installation fails Windows side-by-side startup |
 | `.rs` | BLOCKED | BLOCKED | BLOCKED | Rust 1.89 toolchain present, but MSVC `link.exe` is unavailable on this host |
@@ -30,11 +55,6 @@ different bit. Every COREO input was hashed for 9,001 SHA-1 applications.
 | `.sql` | BLOCKED | BLOCKED | BLOCKED | Requires SAP HANA SQLScript and `HASH_SHA1`, unavailable on this host |
 | `.acl` | N/A | N/A | N/A | No `.acl` implementation exists in the maintained set |
 | `.ts` | PASS | PASS | PASS | Node.js 26.7.0 native type stripping; 169 cases, 168 distinct perturbation digests |
-
-`*` The Python implementation and the PowerShell implementation use the same
-algorithm, and the native PowerShell COREO run is recorded as the bounded
-COREO evidence for the Python adapter policy. This is not claimed as a Python
-runtime execution.
 
 ## Native run summary
 
@@ -48,10 +68,12 @@ runtime execution.
 - JavaScript, Julia, Perl, and R: each completed independent YIN/YAN and
   169-case COREO runs
 
-The complete native stdout excerpt is in
-`YIN-YAN-COREO-PS-STDOUT.txt`. SKIP means the required runtime/provider was
-not available. BLOCKED means the runtime was present but the attempted
-adapter could not start safely on this host. Neither status is a pass.
+The native PowerShell stdout file is a summary with sampled bit hashes, not
+the full 169-row COREO output. The complete legacy trace is
+`COREO-STDOUT.txt`; its all-hash index is `COREO-ALL-HASHES.tsv`, whose codec
+and run ID remain unattributed. `RUN-HASH-COVERAGE.md` distinguishes existing
+per-codec evidence from missing per-codec records. `SKIP`, `NOT RUN`,
+`BLOCKED`, and `N/A` are not passes.
 
 ## ROT compatibility vectors
 
