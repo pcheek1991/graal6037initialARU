@@ -22,3 +22,15 @@ Based on source inspection, neither command contains an obvious persistence mech
 - The repository's signed-ROT check is an internal consistency check unless it verifies an independently supplied MAC; it is not proof of external authenticity.
 
 This document is an incident record, not a statement that NETGEAR, Bitdefender, Microsoft, or any other vendor endorsed or confirmed the interpretation above.
+
+## Additional reported detection: destructive regeneration variant
+
+The operator also reported a third alert for a command that first executes:
+
+```powershell
+if (Test-Path $out) { Remove-Item -LiteralPath $out -Recurse -Force }
+```
+
+It then recreates `_publication`, recursively enumerates the workspace, copies source files, generates byte-wise ROT13 mirrors, calculates SHA-512 values, writes hash trees, and emits private/public indexes. This variant is **destructive within its resolved `_publication` path**: it can delete prior generated artifacts before rebuilding them. That destructive recursive deletion is a plausible behavioral-antivirus trigger and is a stronger safety concern than the non-destructive generator variant.
+
+Do not rerun this variant against an important workspace. Use a new disposable output directory, refuse to delete an existing path unless it is an explicitly approved staging directory, and preserve backups before regeneration. The report remains attributed by the operator to NETGEAR ARMOR powered by Bitdefender but is not independently verified without vendor telemetry.
